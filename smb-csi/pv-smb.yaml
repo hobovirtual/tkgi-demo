@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-smb
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - vers=3.0
+  storageClassName: "smb"
+  csi:
+    driver: smb.csi.k8s.io
+    readOnly: false
+    volumeHandle: [unique volumeid]
+    volumeAttributes:
+      source: "//[windows share fqdn]/[share]"
+    nodeStageSecretRef:
+      name: smbcreds
+      namespace: default

@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: smbcreds
+type: Opaque
+data:
+  username: [base64 username]
+  password: [base64 password]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-smb
+spec:
+  volumes:
+    - name: pv-smb
+      persistentVolumeClaim:
+        claimName: pvc-smb
+  containers:
+    - name: pod-smb
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: http-server
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: pv-smb
