@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-matomo
+spec:
+  type: LoadBalancer
+  selector:
+    app: matomo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    name: svc-matomo
