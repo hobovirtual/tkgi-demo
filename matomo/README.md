@@ -2,9 +2,9 @@
 bitnami matomo offers the following format
 
 - cloud instance
-..* GCP
-..* AWS
-..* Azure
+⋅⋅* GCP
+⋅⋅* AWS
+⋅⋅* Azure
 - mac installer
 - open virtual appliance (ova)
 
@@ -20,17 +20,17 @@ bitnami matomo offers the following format
 
 Since matomo is not packaged as an helm chart, we need to get some prerequisite ready first
 
-- define a default storageclass (if not already defined)
-..* required for our database engine and matomo persistent data
-- install a supported database engine
-..* in this example we will use mariadb
+1. define a default storageclass (if not already defined)
+⋅⋅* required for our database engine and matomo persistent data
+2. install a supported database engine
+⋅⋅* in this example we will use mariadb
 
 then we need define some manifest in order to make it run on k8s
 
-- deployment
-- service
-..* ingress controller
-- persistent volume claim (pvc)
+1. deployment
+2. service
+⋅⋅* ingress controller
+3. persistent volume claim (pvc)
 
 ### steps
 
