@@ -46,7 +46,7 @@ kubectl apply -f sc.yaml
 install mariadb
 
 ```
-helm repo add bitnami
+helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 helm install mariadb \
   --set auth.rootPassword=[password],auth.database=bitnami_matomo \
